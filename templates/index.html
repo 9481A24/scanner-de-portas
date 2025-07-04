@@ -1,1 +1,24 @@
 
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Scanner de Portas</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <h1>Scanner de Portas</h1>
+  <form method="POST">
+    <input type="text" name="host" placeholder="Digite o IP ou site" required>
+    <button type="submit">Escanear</button>
+  </form>
+  {% if resultados %}
+    <h2>Resultado:</h2>
+    <ul>
+      {% for porta, status in resultados.items() %}
+        <li>Porta {{ porta }}: {{ status }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+</body>
+</html>
